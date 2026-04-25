@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TradeSage | Generational Stewardship for Historic Homes</title>
+    <title>TradeSage | Master Mentorship for Historic Restoration</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #FFFCE1;
-            --text: #000000;
+            --text: #1B2B3A;
             --accent: #4361EE;
+            --sage: #7B8C7E;
+            --oak: #A67C52;
             --border: 4px solid #000000;
-            --shadow: 4px 4px 0 #000000;
+            --shadow: 6px 6px 0 #000000;
         }
 
         * {
@@ -34,7 +36,7 @@
             font-family: 'Space Mono', monospace;
             text-transform: uppercase;
             font-weight: 700;
-            line-height: 1;
+            line-height: 1.1;
         }
 
         .container {
@@ -64,8 +66,8 @@
             font-family: 'Space Mono', monospace;
             font-weight: 700;
             border: var(--border);
-            padding: 5px 15px;
-            background: var(--accent);
+            padding: 8px 20px;
+            background: var(--text);
             color: white;
             box-shadow: var(--shadow);
             text-decoration: none;
@@ -73,31 +75,45 @@
 
         /* Hero */
         .hero {
-            padding: 80px 0;
+            padding: 100px 0;
             border-bottom: var(--border);
+            background: #fff;
         }
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
             align-items: center;
         }
 
-        @media (max-width: 768px) {
-            .hero-grid { grid-template-columns: 1fr; }
+        @media (max-width: 992px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-btns { justify-content: center; }
         }
 
         .hero-text h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 20px;
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 25px;
+        }
+
+        .hero-text p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         .hero-image {
             border: var(--border);
             box-shadow: var(--shadow);
             background: #fff;
-            overflow: hidden;
+            position: relative;
         }
 
         .hero-image img {
@@ -106,20 +122,111 @@
             display: block;
         }
 
-        /* Dual Funnel Sections */
+        /* Banner */
+        .banner {
+            background: var(--accent);
+            color: white;
+            padding: 15px 0;
+            border-bottom: var(--border);
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            border-bottom: var(--border);
+            text-align: center;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .price-card {
+            background: #fff;
+            border: var(--border);
+            box-shadow: var(--shadow);
+            padding: 50px 30px;
+            position: relative;
+        }
+
+        .price-card.featured {
+            background: var(--bg);
+            transform: scale(1.05);
+            z-index: 2;
+        }
+
+        .price-tag {
+            font-size: 3.5rem;
+            font-family: 'Space Mono', monospace;
+            margin: 20px 0;
+            display: block;
+        }
+
+        .price-card h3 {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .price-features li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .price-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        /* Funnel Layout */
         .funnels {
             display: grid;
             grid-template-columns: 1fr 1fr;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .funnels { grid-template-columns: 1fr; }
         }
 
         .funnel-box {
-            padding: 80px 40px;
+            padding: 100px 60px;
             border-right: var(--border);
             border-bottom: var(--border);
+        }
+
+        @media (max-width: 600px) {
+            .funnel-box { padding: 60px 20px; }
         }
 
         .funnel-box:last-child {
@@ -127,16 +234,16 @@
         }
 
         .expert-funnel { background: #fff; }
-        .owner-funnel { background: var(--bg); }
+        .owner-funnel { background: #F9F7F2; }
 
         .funnel-box h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-size: 2.8rem;
+            margin-bottom: 25px;
         }
 
         .funnel-box p {
-            font-size: 1.25rem;
-            margin-bottom: 30px;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
         }
 
         /* Forms */
@@ -144,99 +251,119 @@
             background: #fff;
             border: var(--border);
             box-shadow: var(--shadow);
-            padding: 30px;
+            padding: 40px;
         }
 
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .input-group label {
             display: block;
             font-family: 'Space Mono', monospace;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
         input, select, textarea {
             width: 100%;
-            padding: 12px;
+            padding: 15px;
             border: var(--border);
             font-family: 'Work Sans', sans-serif;
-            font-size: 1rem;
+            font-size: 1.1rem;
             outline: none;
+            background: #fff;
         }
 
-        input:focus {
-            background: #f0f0f0;
+        input:focus, select:focus, textarea:focus {
+            background: #fdfdfd;
+            box-shadow: inset 2px 2px 0 rgba(0,0,0,0.05);
         }
 
         button {
             width: 100%;
-            padding: 15px;
+            padding: 20px;
             background: var(--accent);
             color: white;
             border: var(--border);
             box-shadow: var(--shadow);
             font-family: 'Space Mono', monospace;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             cursor: pointer;
             text-transform: uppercase;
-            transition: transform 0.1s;
+            transition: all 0.1s;
         }
 
         button:active {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0 #000;
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0 #000;
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: var(--shadow);
+        }
+
+        .cta-outline {
+            background: white;
+            color: black;
         }
 
         /* Success Message */
         .success-msg {
             display: none;
-            padding: 20px;
-            background: #4CAF50;
-            color: white;
-            border: var(--border);
-            margin-top: 20px;
-            font-weight: 600;
+            padding: 25px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border: 4px solid #2e7d32;
+            margin-top: 25px;
+            font-weight: 700;
+            font-family: 'Space Mono', monospace;
+            text-align: center;
         }
 
-        /* Features */
-        .features {
+        /* Stats */
+        .stats {
             padding: 80px 0;
             background: #000;
             color: #fff;
+            text-align: center;
         }
 
-        .features h2 {
-            margin-bottom: 40px;
-            color: var(--accent);
-        }
-
-        .feature-grid {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
         }
 
-        .feature-card {
-            border: 4px solid #fff;
-            padding: 30px;
-            background: #111;
+        .stat-item h3 {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 10px;
         }
 
-        .feature-card h3 {
-            margin-bottom: 15px;
-            color: #fff;
+        .stat-item p {
+            font-family: 'Space Mono', monospace;
+            text-transform: uppercase;
+            font-size: 1rem;
+            opacity: 0.8;
         }
 
         footer {
-            padding: 40px 0;
+            padding: 60px 0;
             border-top: var(--border);
             text-align: center;
             font-family: 'Space Mono', monospace;
+            background: #fff;
+        }
+
+        .anchor {
+            scroll-margin-top: 100px;
         }
     </style>
 </head>
@@ -244,133 +371,187 @@
 
     <nav>
         <div class="container">
-            <a href="#" class="logo">TRADESAGE</a>
+            <a href="/" class="logo">TRADESAGE</a>
             <div>
-                <a href="#experts" style="margin-right: 20px; text-decoration: none; color: black; font-weight: 600;">FOR EXPERTS</a>
-                <a href="#homeowners" style="text-decoration: none; color: black; font-weight: 600;">FOR HOMEOWNERS</a>
+                <a href="#experts" style="margin-right: 25px; text-decoration: none; color: black; font-weight: 700; font-family: 'Space Mono', monospace;">EXPERTS</a>
+                <a href="#homeowners" style="text-decoration: none; color: black; font-weight: 700; font-family: 'Space Mono', monospace;">RESTORERS</a>
             </div>
         </div>
     </nav>
+
+    <div class="banner">
+        <div class="marquee">
+            NOW ACCEPTING FOUNDING MASTERS IN PHILADELPHIA & CHARLESTON — PRESERVE THE CRAFT — MONETIZE WISDOM NOT MUSCLE — START YOUR RESTORATION WITH CONFIDENCE —
+        </div>
+    </div>
 
     <section class="hero">
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-text">
-                    <h1>RESTORING THE PAST, MENTORING THE FUTURE.</h1>
-                    <p style="font-size: 1.5rem; margin-bottom: 30px;">TradeSage pairs retired master tradespeople with homeowners doing restoration projects. High-impact mentorship, zero physical strain.</p>
-                    <div style="display: flex; gap: 20px;">
-                        <a href="#experts" style="flex: 1; text-decoration: none;"><button style="background: white; color: black;">SHARE YOUR CRAFT</button></a>
-                        <a href="#homeowners" style="flex: 1; text-decoration: none;"><button>CONSULT A MASTER</button></a>
+                    <h1>RESTORING HISTORY THROUGH MASTERY.</h1>
+                    <p>TradeSage pairs retired master tradespeople with millennial homeowners for hands-on restoration mentorship. Professional guidance at 50% of contractor labor costs.</p>
+                    <div class="hero-btns">
+                        <a href="#homeowners" style="text-decoration: none;"><button style="padding: 20px 40px;">GET A CONSULTATION</button></a>
+                        <a href="#experts" style="text-decoration: none;"><button class="cta-outline" style="padding: 20px 40px;">SHARE YOUR CRAFT</button></a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="images/an-editorial-photo-of-a-retired-master-c.png" alt="Retired master carpenter mentoring a homeowner">
+                    <img src="images/an-editorial-photo-of-a-retired-master-c.png" alt="Master Carpenter Mentoring Homeowner">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="funnels">
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>20</h3>
+                    <p>Founding Masters</p>
+                </div>
+                <div class="stat-item">
+                    <h3>$15K</h3>
+                    <p>Avg. Homeowner Savings</p>
+                </div>
+                <div class="stat-item">
+                    <h3>40+</h3>
+                    <p>Years Avg. Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing anchor">
+        <div class="container">
+            <h2>START YOUR RESTORATION RIGHT</h2>
+            <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Don't gamble with your home's structural integrity. Book a specialized consultation package.</p>
+            
+            <div class="pricing-grid">
+                <div class="price-card featured">
+                    <div style="background: var(--text); color: white; padding: 5px 15px; position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%); font-family: 'Space Mono'; font-weight: 700; font-size: 0.8rem;">MOST POPULAR</div>
+                    <h3>CONSULTATION STARTER PACK</h3>
+                    <span class="price-tag">$250</span>
+                    <ul class="price-features">
+                        <li>Two On-Site Strategy Visits</li>
+                        <li>Digital Bill of Materials (BOM)</li>
+                        <li>Historic Structural Assessment</li>
+                        <li>Direct "DIWM" Project Roadmap</li>
+                        <li>Mentorship Liability Coverage</li>
+                    </ul>
+                    <a href="#homeowners" style="text-decoration: none;"><button>BOOK NOW</button></a>
+                </div>
+                <div class="price-card">
+                    <h3>HOURLY MENTORSHIP</h3>
+                    <span class="price-tag">$65<small style="font-size: 1rem;">/hr</small></span>
+                    <ul class="price-features">
+                        <li>Hands-on Technical Guidance</li>
+                        <li>Tool Safety & Technique Training</li>
+                        <li>On-the-spot Problem Solving</li>
+                        <li>Flexible Scheduling</li>
+                        <li>Minimum 2-hour sessions</li>
+                    </ul>
+                    <a href="#homeowners" style="text-decoration: none;"><button class="cta-outline">REQUEST QUOTE</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="funnels anchor" id="funnels">
         <!-- Expert Funnel -->
-        <div class="funnel-box expert-funnel" id="experts">
-            <h2>RETIRE FROM THE LIFT, NOT THE TRADE.</h2>
-            <p>Your 30+ years of mastery is too valuable to sit in a garage. Supplement your income and keep the craft alive—on your own schedule, without the back pain.</p>
+        <div class="funnel-box expert-funnel anchor" id="experts">
+            <h2>RETIRE FROM LABOR, NOT THE TRADE.</h2>
+            <p>Monetize your 30+ years of wisdom. Join our Founding Master cohort. Mentor local homeowners and keep the craft alive without the physical strain.</p>
             
             <div class="form-card">
                 <form id="expert-form">
                     <div class="input-group">
-                        <label>Your Name</label>
-                        <input type="text" name="name" placeholder="John Miller" required>
+                        <label>Full Name</label>
+                        <input type="text" name="name" placeholder="Robert 'Bob' Miller" required>
                     </div>
                     <div class="input-group">
-                        <label>Primary Trade</label>
+                        <label>Your Trade Specialty</label>
                         <select name="trade" required>
-                            <option value="">Select a trade</option>
-                            <option value="Carpentry">Carpentry</option>
-                            <option value="Plumbing">Plumbing</option>
-                            <option value="Electrical">Electrical</option>
-                            <option value="Masonry">Masonry</option>
-                            <option value="Other">Other</option>
+                            <option value="">Select Primary Trade</option>
+                            <option value="Master Carpenter">Master Carpenter</option>
+                            <option value="Master Plumber">Master Plumber</option>
+                            <option value="Master Electrician">Master Electrician</option>
+                            <option value="Mason / Stone Expert">Mason / Stone Expert</option>
+                            <option value="Historic Window Specialist">Historic Window Specialist</option>
+                            <option value="HVAC / Steam Heat">HVAC / Steam Heat</option>
                         </select>
                     </div>
                     <div class="input-group">
-                        <label>Years of Experience</label>
-                        <input type="number" name="years_experience" placeholder="35" required>
+                        <label>Years of Hands-on Experience</label>
+                        <input type="number" name="years_experience" placeholder="35" required min="20">
                     </div>
                     <div class="input-group">
-                        <label>Location (City/State)</label>
-                        <input type="text" name="location" placeholder="Philadelphia, PA" required>
+                        <label>Contact Email</label>
+                        <input type="email" name="email" placeholder="bob.m@tradesage.net" required>
                     </div>
-                    <button type="submit">APPLY AS A FOUNDING MASTER</button>
-                    <div class="success-msg" id="expert-success">MASTER PROFILE REGISTERED. WE'LL REACH OUT SOON.</div>
+                    <div class="input-group">
+                        <label>Current Location</label>
+                        <input type="text" name="location" placeholder="South Philly, PA" required>
+                    </div>
+                    <button type="submit">APPLY FOR FOUNDING STATUS</button>
+                    <div class="success-msg" id="expert-success">MASTER PROFILE REGISTERED. WELCOME TO THE GUILD.</div>
                 </form>
             </div>
         </div>
 
         <!-- Homeowner Funnel -->
-        <div class="funnel-box owner-funnel" id="homeowners">
-            <h2>STOP GUESSING. START RESTORING.</h2>
-            <p>Don't let a "simple project" turn into a 1920s disaster. Get a Master to walk you through your restoration for $60/hr. Half the cost, twice the pride.</p>
+        <div class="funnel-box owner-funnel anchor" id="homeowners">
+            <h2>STOP THE GUESSWORK.</h2>
+            <p>YouTube can't see behind your 1920s plaster. Get a retired Master to walk you through your restoration correctly. Save money, gain confidence.</p>
             
             <div class="form-card">
                 <form id="owner-form">
                     <div class="input-group">
-                        <label>Your Name</label>
-                        <input type="text" name="name" placeholder="Sarah Jenkins" required>
+                        <label>Full Name</label>
+                        <input type="text" name="name" placeholder="Alice Carter" required>
                     </div>
                     <div class="input-group">
-                        <label>Your Email</label>
-                        <input type="email" name="email" placeholder="sarah@example.com" required>
+                        <label>Email Address</label>
+                        <input type="email" name="email" placeholder="alice@example.com" required>
                     </div>
                     <div class="input-group">
-                        <label>Project Type</label>
+                        <label>Restoration Need</label>
                         <select name="restoration_type" required>
-                            <option value="">What are you restoring?</option>
-                            <option value="Historic Windows">Historic Windows</option>
-                            <option value="Vintage Plumbing">Vintage Plumbing</option>
-                            <option value="Period Electrical">Period Electrical</option>
-                            <option value="Plaster Repair">Plaster Repair</option>
-                            <option value="Full Restoration">Full Restoration</option>
+                            <option value="">What's your project?</option>
+                            <option value="Structural Repair">Structural / Joist Repair</option>
+                            <option value="Plumbing Overhaul">Plumbing / Copper Sweating</option>
+                            <option value="Historic Electrical">Knob & Tube / Service Upgrade</option>
+                            <option value="Plaster & Lath">Plaster & Lath Restoration</option>
+                            <option value="Window Restoration">Original Window Restoration</option>
                         </select>
                     </div>
                     <div class="input-group">
                         <label>Estimated Project Budget ($)</label>
-                        <input type="number" name="budget" placeholder="5000" required>
+                        <input type="number" name="budget" placeholder="2500" required>
                     </div>
                     <div class="input-group">
                         <label>Project Location</label>
-                        <input type="text" name="location" placeholder="Chestnut Hill, Philadelphia" required>
+                        <input type="text" name="location" placeholder="Germantown, Philadelphia" required>
                     </div>
-                    <button type="submit">MEET YOUR SAGE</button>
-                    <div class="success-msg" id="owner-success">PROJECT REGISTERED. YOUR SAGE IS ON THE WAY.</div>
+                    <button type="submit">BOOK $250 STARTER PACK</button>
+                    <div class="success-msg" id="owner-success">LEAD CAPTURED. YOUR SAGE WILL CONTACT YOU SHORTLY.</div>
                 </form>
             </div>
         </div>
     </section>
 
-    <section class="features">
-        <div class="container">
-            <h2>THE TRADESAGE MOAT</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>LEGACY INSURANCE</h3>
-                    <p>Every project is covered by our specific Mentorship Liability Rider. Protections for both the brain (The Sage) and the muscle (The Homeowner).</p>
-                </div>
-                <div class="feature-card">
-                    <h3>BILL OF MATERIALS</h3>
-                    <p>No more three trips to the hardware store. Your Sage provides a digital roadmap and accurate parts list before you start.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>LOCAL PARTNERSHIPS</h3>
-                    <p>Access exclusive discounts at independent hardware stores in the Philadelphia area. Keep it local, keep it authentic.</p>
-                </div>
-            </div>
+    <section style="padding: 100px 0; border-bottom: var(--border);">
+        <div class="container" style="text-align: center;">
+            <img src="images/a-professional-architectural-restoration.png" alt="Consultation Pack" style="width: 100%; max-width: 800px; border: var(--border); box-shadow: var(--shadow); margin-bottom: 40px;">
+            <h2 style="margin-bottom: 20px;">READY TO RESTORE?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 40px;">Our pilot is currently active in the Greater Philadelphia area.</p>
+            <a href="#homeowners" style="text-decoration: none;"><button style="max-width: 400px;">GET STARTED TODAY</button></a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 TRADESAGE. PHILADELPHIA PILOT PHASE.</p>
+            <p>&copy; 2026 TRADESAGE. PHILADELPHIA & CHARLESTON MASTER GUILD PILOTS. <br> MONETIZING WISDOM. PRESERVING HISTORY.</p>
         </div>
     </footer>
 
@@ -402,6 +583,7 @@
             }
 
             btn.disabled = true;
+            const originalText = btn.innerText;
             btn.innerText = 'PROCESSING...';
 
             try {
@@ -415,6 +597,9 @@
                     form.reset();
                     btn.style.display = 'none';
                     successMsg.style.display = 'block';
+                    
+                    // Simple tracking log
+                    console.log('Submission successful to DB:', dbId);
                 } else {
                     throw new Error('Failed to submit');
                 }
@@ -422,12 +607,22 @@
                 console.error(err);
                 alert('Submission failed. Please try again.');
                 btn.disabled = false;
-                btn.innerText = 'SUBMIT AGAIN';
+                btn.innerText = originalText;
             }
         }
 
         document.getElementById('expert-form').addEventListener('submit', (e) => submitForm(e, EXPERT_DB_ID, 'expert-success'));
         document.getElementById('owner-form').addEventListener('submit', (e) => submitForm(e, LEADS_DB_ID, 'owner-success'));
+
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
